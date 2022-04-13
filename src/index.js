@@ -3,13 +3,16 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { CountContextProvider } from "./context/CountContext";
 
 const rootContainer = document.getElementById("root");
 const root = createRoot(rootContainer);
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <CountContextProvider>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </CountContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
