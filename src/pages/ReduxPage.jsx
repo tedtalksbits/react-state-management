@@ -12,10 +12,13 @@ import {
 } from "@chakra-ui/react";
 import { MinusCircle, PlusCircle } from "phosphor-react";
 import { PAGESINFO } from "../constants/pagesInfo";
+import { useSelector, useDispatch } from "react-redux";
+import { addOne, subOne } from "../store/actions/count.actions";
 
 const ReduxPage = () => {
   const { reduxPage } = PAGESINFO;
-
+  const dispatch = useDispatch();
+  const count = useSelector((state) => state.count);
   return (
     <Stack>
       <Alert
@@ -33,10 +36,10 @@ const ReduxPage = () => {
       </Alert>
 
       <Box bg={"pink.100"} p={4}>
-        {/* <Heading userSelect={"none"}>count: {count}</Heading> */}
+        <Heading userSelect={"none"}>count: {count}</Heading>
         <HStack>
-          {/* <PlusCircle size={32} onClick={incrementCount} />
-          <MinusCircle size={32} onClick={decrementCount} /> */}
+          <PlusCircle size={32} onClick={() => dispatch(addOne())} />
+          <MinusCircle size={32} onClick={() => dispatch(subOne())} />
         </HStack>
       </Box>
       <Code

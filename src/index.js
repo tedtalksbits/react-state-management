@@ -4,15 +4,19 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { CountContextProvider } from "./context/CountContext";
+import { Provider } from "react-redux";
+import store from "./store";
 
 const rootContainer = document.getElementById("root");
 const root = createRoot(rootContainer);
 root.render(
-  <CountContextProvider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </CountContextProvider>
+  <Provider store={store}>
+    <CountContextProvider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </CountContextProvider>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

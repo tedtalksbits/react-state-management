@@ -3,7 +3,7 @@ import React from "react";
 
 const Wrapper = ({ children }) => {
   return (
-    <Container maxW={"5xl"} minHeight={"100vh"}>
+    <Container maxW={"5xl"} minHeight={"100vh"} my={20}>
       {children}
     </Container>
   );
